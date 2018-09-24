@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/ChinaBigPan/daguoStructure.git"
   },
-  "bin": "bin/structureRun",
+  "bin": "bin/structureRun.js",
   "keywords": [
     "yeoman-generator"
   ],
