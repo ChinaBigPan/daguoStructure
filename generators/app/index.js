@@ -51,6 +51,7 @@ class daguoStructure extends Generator {
     writing() {
         const _path = this.appname;
         // 需要拷贝的文件夹数组
+        // 这里以后要用fs模块进行优化
         const fileArr = [
             {
                 name: 'bin',
@@ -102,10 +103,6 @@ class daguoStructure extends Generator {
                 isDirectory: false
             }
         ]
-        // 'bin', 'config', 'dist', 'docs', 'src', 'test', '.babelrc',
-        // '.eslintignore', '.eslintrc.js', '.gitignore', 'gulpfile.js', 'jsdocConf.js',
-        // 'package.json', 'postcss.config.js', 'Readme.md', 'structureDep.js',
-        // 'webpack.config.js'
         fileArr.forEach((item) => {
             this.copyFile(_path, item.name, item.isDirectory);
         })
