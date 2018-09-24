@@ -71,8 +71,8 @@ module.exports = class extends Generator {
             this.destinationPath(_path + '/.eslintrc.js')
         );
         this.fs.copyTpl(
-            this.templatePath('.babelrc.js'),
-            this.destinationPath(_path + '/.babelrc.js')
+            this.templatePath('.babelrc'),
+            this.destinationPath(_path + '/.babelrc')
         );
         this.fs.copyTpl(
             this.templatePath('postcss.config.js'),
