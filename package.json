@@ -1,5 +1,5 @@
 {
-  "name": "generator-daguostructure",
+  "name": "generator-daguoStructure",
   "version": "0.0.1",
   "description": "'大锅自己尝试构建的架构'",
   "main": "index.js",
