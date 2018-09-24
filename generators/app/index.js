@@ -4,7 +4,7 @@ const util = require("util");
 const Generator = require("yeoman-generator");
 const yosay = require("yosay") // yeoman弹出框
 
-class daguoStructure extends Generator {
+module.exports = class extends Generator {
     constructor(args, opts) {
         super(args, opts);
         this.appname = "daguoStructure"
@@ -128,6 +128,3 @@ class daguoStructure extends Generator {
         ))
     }
 }
-
-
-module.exports = daguoStructure
