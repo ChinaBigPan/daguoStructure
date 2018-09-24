@@ -1,27 +1,35 @@
 {
-  "name": "daguostructure",
-  "version": "1.0.0",
-  "description": "'大锅自己尝试构建的架构'",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChinaBigPan/daguoStructure.git"
-  },
-  "keywords": [
-    "yeoman-generator"
-  ],
-  "author": "ChinaBigPan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChinaBigPan/daguoStructure/issues"
-  },
-  "homepage": "https://github.com/ChinaBigPan/daguoStructure#readme",
-  "dependencies": {
-    "chalk": "^2.4.1",
-    "yeoman-generator": "^3.1.1",
-    "yosay": "^2.0.2"
-  }
+	"name": "generator-daguostructure",
+	"version": "0.0.1",
+	"description": "'大锅自己尝试构建的架构'",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ChinaBigPan/daguoStructure.git"
+	},
+	"bin": "bin/structureRun",
+		"keywords": [
+		"yeoman-generator"
+		],
+		"files": [
+		"generators"
+		],
+		"author": {
+		"name": "ChinaBigPan",
+		"email": "gxp5189468@163.com",
+		"url": "https://github.com/ChinaBigPan"
+		},
+		"license": "ISC",
+		"bugs": {
+			"url": "https://github.com/ChinaBigPan/daguoStructure/issues"
+		},
+		"homepage": "https://github.com/ChinaBigPan/daguoStructure#readme",
+		"dependencies": {
+			"chalk": "^2.4.1",
+			"yeoman-generator": "^3.1.1",
+			"yosay": "^2.0.2"
+		}
 }

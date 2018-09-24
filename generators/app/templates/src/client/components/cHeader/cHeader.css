@@ -1,0 +1,9 @@
+:root {
+    --headerHeight: blue;
+}
+
+.components-container {
+    & .h2-title {
+        color: var(--headerHeight);
+    }
+}
