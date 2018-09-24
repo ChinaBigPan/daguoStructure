@@ -43,84 +43,70 @@ module.exports = class extends Generator {
             if (answers.preprocessor) {
                 this.log(chalk.yellow(
                     '预处理已经被我强烈建议成less或PostCSS😳'
-                ))
+                ));
             }
-        })
+        });
     }
 
     writing() {
         const _path = this.appname;
-        // 需要拷贝的文件夹数组
-        // 这里以后要用fs模块进行优化
-        const fileArr = [
-            {
-                name: 'bin',
-                isDirectory: true
-            },{
-                name: 'config',
-                isDirectory: true
-            },{
-                name: 'docs',
-                isDirectory: true
-            },{
-                name: 'docs',
-                isDirectory: true
-            },{
-                name: 'src',
-                isDirectory: true
-            },{
-                name: 'test',
-                isDirectory: true
-            },{
-                name: '.eslintignore',
-                isDirectory: false
-            },{
-                name: '.eslintignore',
-                isDirectory: false
-            },{
-                name: '.gitignore',
-                isDirectory: false
-            },{
-                name: 'gulpfile.js',
-                isDirectory: false
-            },{
-                name: 'jsdocConf.js',
-                isDirectory: false
-            },{
-                name: 'package.json',
-                isDirectory: false
-            },{
-                name: 'postcss.config.js',
-                isDirectory: false
-            },{
-                name: 'Readme.md',
-                isDirectory: false
-            },{
-                name: 'structureDep.js',
-                isDirectory: false
-            },{
-                name: 'webpack.config.js',
-                isDirectory: false
+        this.fs.copy(
+            this.templatePath('config'),
+            this.destinationPath(_path + '/config')
+        );
+        this.fs.copy(
+            this.templatePath('src'),
+            this.destinationPath(_path + '/src')
+        );
+        this.fs.copy(
+            this.templatePath('test'),
+            this.destinationPath(_path + '/test')
+        );
+        this.fs.copyTpl(
+            this.templatePath('gulpfile.js'),
+            this.destinationPath(_path + '/gulpfile.js')
+        );
+        this.fs.copyTpl(
+            this.templatePath('.eslintrc.js'),
+            this.destinationPath(_path + '/.eslintrc.js')
+        );
+        this.fs.copyTpl(
+            this.templatePath('.babelrc.js'),
+            this.destinationPath(_path + '/.babelrc.js')
+        );
+        this.fs.copyTpl(
+            this.templatePath('postcss.config.js'),
+            this.destinationPath(_path + '/postcss.config.js')            
+        );
+        this.fs.copyTpl(
+            this.templatePath('Readme.md'),
+            this.destinationPath(_path + '/Readme.md')
+        );
+        this.fs.copyTpl(
+            this.templatePath('package.json'),
+            this.destinationPath(_path + '/package.json'), {
+                packagename: this.appname
             }
-        ]
-        fileArr.forEach((item) => {
-            this.copyFile(_path, item.name, item.isDirectory);
-        })
+        );
+        this.fs.copyTpl(
+            this.templatePath('webpack.config.js'),
+            this.destinationPath(_path + '/webpack.config.js')
+        );
     }
 
-    copyFile(path, name, isDirectory) {
-        if (isDirectory) {
-            this.fs.copy(
-                this.templatePath(name),
-                this.destinationPath(`${path}/${name}`)
-            )
-        } else {
-            this.fs.copyTpl(
-                this.templatePath(name),
-                this.destinationPath(`${path}/${name}`)
-            )
-        }
-    }
+    // copyFile(path, name, isDirectory) {
+    //     if (isDirectory) {
+    //         this.fs.copy(
+    //             this.templatePath(name),
+    //             this.destinationPath(`${path}/${name}`)
+    //         )
+    //     } else {
+    //         this.fs.copyTpl(
+    //             this.templatePath(name),
+    //             this.destinationPath(`${path}/${name}`)
+    //         )
+    //     }
+    // }
 
     end() {
         this.log(yosay(
